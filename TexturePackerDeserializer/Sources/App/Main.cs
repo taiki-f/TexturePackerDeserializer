@@ -25,16 +25,18 @@ namespace App
         /// <param name="args">引数</param>
         static void Main(string[] args)
         {
-            // 引数ごとの処理を追加
             m_argParam = new ArgParam();
             m_argFuncList = new List<IArgument<ArgParam>>();
+
+            // 引数ごとの処理を追加
             m_argFuncList.Add(new ArgInputFile());
+            m_argFuncList.Add(new ArgOutputInfo());
 
             // 引数ごとの処理を実行
             foreach (var arg in args)
             {
                 // 種類とパラメーターに分割
-                string[] p = arg.Split('=');
+                var p = arg.Split('=');
                 if (2 <= p.Length)
                 {
                     var func = GetArgFunc(p[ARG_DEF_TYPE]);
@@ -52,7 +54,7 @@ namespace App
             }
 
             // アプリが強制終了の場合
-            if (m_argParam.forceAppExit)
+            if (m_argParam.forceAppExit && !String.IsNullOrWhiteSpace(m_argParam.errorMessage))
             {
                 Console.WriteLine(m_argParam.errorMessage);
                 return;

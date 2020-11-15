@@ -9,13 +9,15 @@ namespace App.Argument
 {
     class ArgInputFile : AppSystem.IArgument<ArgParam>
     {
+        readonly string PARAM_TYPE = "-in";
+
         /// <summary>
         /// パラメータータイプを取得
         /// </summary>
         /// <returns>パラメータータイプ</returns>
         public string GetParamType()
         {
-            return "-in";
+            return PARAM_TYPE;
         }
 
         /// <summary>
