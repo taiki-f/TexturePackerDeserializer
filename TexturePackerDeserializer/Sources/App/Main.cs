@@ -57,23 +57,6 @@ namespace App
                 Console.WriteLine(m_argParam.errorMessage);
                 return;
             }
-
-            try
-            {
-                // メタデータの確認
-                Console.WriteLine(m_argParam.jsonData.metaFormat.meta.app);
-
-                // フレームデータの確認
-                foreach (var frame in m_argParam.jsonData.frameFormat.frames)
-                {
-                    Console.WriteLine(frame.filename);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                return;
-            }
         }
 
         /// <summary>
