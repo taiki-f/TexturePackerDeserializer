@@ -1,4 +1,4 @@
-﻿namespace Common
+﻿namespace AppSystem
 {
     /// <summary>
     /// 座標

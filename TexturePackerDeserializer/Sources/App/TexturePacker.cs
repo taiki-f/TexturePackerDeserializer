@@ -1,6 +1,6 @@
-﻿using Common;
+﻿using AppSystem;
 
-namespace TexturePacker
+namespace App
 {
     /// <summary>
     /// フレームデータ

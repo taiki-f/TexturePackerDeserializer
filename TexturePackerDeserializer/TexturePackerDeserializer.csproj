@@ -86,14 +86,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Sources\AppSystem\Argument\IArgument.cs" />
+    <Compile Include="Sources\AppSystem\Common.cs" />
+    <Compile Include="Sources\App\Argument\ArgInputFile.cs" />
+    <Compile Include="Sources\App\ArgParam.cs" />
+    <Compile Include="Sources\App\JsonFormat.cs" />
+    <Compile Include="Sources\App\Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TexturePacker.cs" />
+    <Compile Include="Sources\App\TexturePacker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Configs\App.config" />
+    <None Include="Configs\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
