@@ -11,6 +11,8 @@ namespace App
     /// </summary>
     class ArgParam
     {
+        // アプリを強制終了するか
+        public bool forceAppExit;
         // エラーメッセージ
         public string errorMessage;
 
@@ -26,6 +28,7 @@ namespace App
         /// </summary>
         public ArgParam()
         {
+            forceAppExit = false;
             jsonData = new JsonFormat();
         }
     }

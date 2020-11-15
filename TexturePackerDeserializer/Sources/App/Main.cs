@@ -20,26 +20,6 @@ namespace App
         static List<IArgument<ArgParam>> m_argFuncList = new List<IArgument<ArgParam>>();
 
         /// <summary>
-        /// 引数の種類に該当する処理を取得する
-        /// </summary>
-        /// <param name="argType">引数の種類</param>
-        /// <returns></returns>
-        static IArgument<ArgParam> GetArgFunc(string argType)
-        {
-            foreach (var exec in m_argFuncList)
-            {
-                // 該当の
-                var func = m_argFuncList.Find(n => n.GetParamType().Equals(argType));
-                if (func != null)
-                {
-
-                    return func;
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
         /// メイン関数
         /// </summary>
         /// <param name="args">引数</param>
@@ -62,8 +42,20 @@ namespace App
                     {
                         // 引数の種類に該当する処理を実行
                         func.Execute(m_argParam, p[ARG_DEF_PARAM]);
+                        if (m_argParam.forceAppExit)
+                        {
+                            // 引数判定を終了する
+                            break;
+                        }
                     }
                 }
+            }
+
+            // アプリが強制終了の場合
+            if (m_argParam.forceAppExit)
+            {
+                Console.WriteLine(m_argParam.errorMessage);
+                return;
             }
 
             try
@@ -82,6 +74,26 @@ namespace App
                 Console.WriteLine(e.StackTrace);
                 return;
             }
+        }
+
+        /// <summary>
+        /// 引数の種類に該当する処理を取得する
+        /// </summary>
+        /// <param name="argType">引数の種類</param>
+        /// <returns></returns>
+        static IArgument<ArgParam> GetArgFunc(string argType)
+        {
+            foreach (var exec in m_argFuncList)
+            {
+                // 該当の
+                var func = m_argFuncList.Find(n => n.GetParamType().Equals(argType));
+                if (func != null)
+                {
+
+                    return func;
+                }
+            }
+            return null;
         }
     }
 }
