@@ -15,3 +15,7 @@ JSON ARRAY形式のTexturePackerのJSONを必要な部分のみ取得し列挙するCLIツール。
   - VisualC#を使用。
   - NuGet経由で「System.Text.Json」をインストール。
   - .Net Framework 4.6.1
+
+## 備考
+- NuGet経由で「ILMerge」をインストール。
+  - EXE形式単体で使用できるようにしています。
