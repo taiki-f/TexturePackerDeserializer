@@ -29,26 +29,40 @@ namespace App
             m_argFuncList = new List<IArgument<ArgParam>>();
 
             // 引数ごとの処理を追加
-            m_argFuncList.Add(new ArgInputFile());
-            m_argFuncList.Add(new ArgOutputInfo());
+            m_argFuncList.Add(new ArgInputFile());      // 入力ファイル
+            m_argFuncList.Add(new ArgOutputInfo());     // 出力情報
 
             // 引数ごとの処理を実行
-            foreach (var arg in args)
+            string funcParam;
+            foreach (var func in m_argFuncList)
             {
-                // 種類とパラメーターに分割
-                var p = arg.Split('=');
-                if (2 <= p.Length)
+                funcParam = String.Empty;
+                foreach (var arg in args)
                 {
-                    var func = GetArgFunc(p[ARG_DEF_TYPE]);
-                    if (func != null)
+                    var p = arg.Split('=');
+                    if (2 <= p.Length)
                     {
-                        // 引数の種類に該当する処理を実行
-                        func.Execute(m_argParam, p[ARG_DEF_PARAM]);
-                        if (m_argParam.forceAppExit)
+                        if (p[ARG_DEF_TYPE].Equals(func.GetParamType()))
                         {
-                            // 引数判定を終了する
+                            // 一致する引数があればパラメーターを格納
+                            funcParam = p[ARG_DEF_PARAM];
                             break;
                         }
+                    }
+                }
+
+                if (String.IsNullOrWhiteSpace(funcParam))
+                {
+                    // 必須処理なら強制終了
+                }
+                else
+                {
+                    // 引数の種類に該当する処理を実行
+                    func.Execute(m_argParam, funcParam);
+                    if (m_argParam.forceAppExit)
+                    {
+                        // 引数判定を終了する
+                        break;
                     }
                 }
             }
