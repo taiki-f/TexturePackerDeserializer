@@ -30,7 +30,7 @@ namespace App.Argument
         {
             if (!File.Exists(param))
             {
-                obj.errorMessage = "ファイルが存在しない [path:" + param + "]";
+                obj.exitMessage = "ファイルが存在しない [path:" + param + "]";
                 obj.forceAppExit = true;
                 return false;
             }
@@ -44,7 +44,7 @@ namespace App.Argument
             }
             catch
             {
-                obj.errorMessage = "JSONデシリアライズに失敗 [path:" + obj.filePath + "]";
+                obj.exitMessage = "JSONデシリアライズに失敗 [path:" + obj.filePath + "]";
                 obj.forceAppExit = true;
                 return false;
             }

@@ -29,6 +29,7 @@ namespace App
             m_argFuncList = new List<IArgument<ArgParam>>();
 
             // 引数ごとの処理を追加
+            m_argFuncList.Add(new ArgHelp());           // ヘルプ
             m_argFuncList.Add(new ArgInputFile());      // 入力ファイル
             m_argFuncList.Add(new ArgOutputInfo());     // 出力情報
 
@@ -40,14 +41,19 @@ namespace App
                 foreach (var arg in args)
                 {
                     var p = arg.Split('=');
-                    if (2 <= p.Length)
+                    if (p[ARG_DEF_TYPE].Equals(func.GetParamType()))
                     {
-                        if (p[ARG_DEF_TYPE].Equals(func.GetParamType()))
+                        if (1 == p.Length)
+                        {
+                            // パラメーターなしの処理なので疑似パラメーターを格納
+                            funcParam = "NONE";
+                        }
+                        else
                         {
                             // 一致する引数があればパラメーターを格納
                             funcParam = p[ARG_DEF_PARAM];
-                            break;
                         }
+                        break;
                     }
                 }
 
@@ -68,9 +74,9 @@ namespace App
             }
 
             // アプリが強制終了の場合
-            if (m_argParam.forceAppExit && !String.IsNullOrWhiteSpace(m_argParam.errorMessage))
+            if (m_argParam.forceAppExit && !String.IsNullOrWhiteSpace(m_argParam.exitMessage))
             {
-                Console.WriteLine(m_argParam.errorMessage);
+                Console.WriteLine(m_argParam.exitMessage);
                 return;
             }
         }

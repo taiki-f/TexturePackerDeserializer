@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Sources\AppSystem\Argument\IArgument.cs" />
     <Compile Include="Sources\AppSystem\Common.cs" />
+    <Compile Include="Sources\App\Argument\ArgHelp.cs" />
     <Compile Include="Sources\App\Argument\ArgInputFile.cs" />
     <Compile Include="Sources\App\ArgParam.cs" />
     <Compile Include="Sources\App\Argument\ArgOutputInfo.cs" />

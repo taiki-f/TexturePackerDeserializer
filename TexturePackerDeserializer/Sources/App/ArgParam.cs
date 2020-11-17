@@ -13,8 +13,8 @@ namespace App
     {
         // アプリを強制終了するか
         public bool forceAppExit;
-        // エラーメッセージ
-        public string errorMessage;
+        // 終了メッセージ
+        public string exitMessage;
 
         // ファイルパス関連
         public string filePath;

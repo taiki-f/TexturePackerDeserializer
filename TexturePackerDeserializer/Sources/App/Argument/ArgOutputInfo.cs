@@ -31,7 +31,7 @@ namespace App
             var dataTypes = param.Split(' ');
             if (dataTypes.Length == 0)
             {
-                obj.errorMessage = "解析前：出力できる情報がない [" + param + "]";
+                obj.exitMessage = "解析前：出力できる情報がない [" + param + "]";
                 obj.forceAppExit = true;
                 return false;
             }
@@ -57,7 +57,7 @@ namespace App
 
             if (stringBuilder.Length == 0)
             {
-                obj.errorMessage = "解析後：出力できる情報がない [" + param + "]";
+                obj.exitMessage = "解析後：出力できる情報がない [" + param + "]";
                 obj.forceAppExit = true;
                 return false;
             }
