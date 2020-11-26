@@ -1,0 +1,8 @@
+TestProject.png	test_a.png	4	4	8	8
+TestProject.png	test_b.png	16	4	16	16
+TestProject.png	test_d.png	36	4	24	24
+TestProject.png	test_e.png	64	4	32	32
+TestProject.png	test_a.png	4	4	8	8
+TestProject.png	test_b.png	16	4	16	16
+TestProject.png	test_d.png	36	4	24	24
+TestProject.png	test_e.png	64	4	32	32

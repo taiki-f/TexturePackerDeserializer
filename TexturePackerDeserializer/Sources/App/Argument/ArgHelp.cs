@@ -28,16 +28,22 @@ namespace App.Argument
         /// <returns>成否</returns>
         public bool Execute(ArgParam obj, string param)
         {
-            StringBuilder stringBuilder = new StringBuilder("使い方:TexturePackerDeserializer.exe -in=INPUT_PATH -info=OUTPUT_INFOS\n");
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("▼使い方\n");
+            stringBuilder.Append("TexturePackerDeserializer.exe -in=INPUT_PATH -format=OUTPUT_FROMATS\n");
             stringBuilder.Append("\n");
-            stringBuilder.Append("  -in:TexturePackより出力したJSON ARRAY形式のファイルパスを指定\n");
-            stringBuilder.Append("  -info:出力したい情報を列挙\n");
+            stringBuilder.Append("▼各種引数\n");
+            stringBuilder.Append("-in     : TexturePackより出力したJSON ARRAY形式のファイルパスを指定\n");
+            stringBuilder.Append("-format : 出力したい情報を特定のフォーマットで指定\n");
             stringBuilder.Append("\n");
-            stringBuilder.Append("▼例1 イメージファイル名を取得する場合\n");
-            stringBuilder.Append("  TexturePackerDeserializer.exe -in=.\\TestJson.json -info=\"image\"\n");
+            stringBuilder.Append("▼使用例1 イメージファイル名を取得する場合\n");
+            stringBuilder.Append("TexturePackerDeserializer.exe -in=.\\TestJson.json -format=\"image\"\n");
             stringBuilder.Append("\n");
-            stringBuilder.Append("▼例2 複数の情報を取得する場合\n");
-            stringBuilder.Append("  TexturePackerDeserializer.exe -in=.\\TestJson.json -info=\"image filename frame\"\n");
+            stringBuilder.Append("▼使用例2 複数の情報を取得する場合1\n");
+            stringBuilder.Append("TexturePackerDeserializer.exe -in=.\\TestJson.json -format=\"image, filename, {frame.x, frame.y}\"\n");
+            stringBuilder.Append("\n");
+            stringBuilder.Append("▼使用例3 複数の情報を取得する場合2\n");
+            stringBuilder.Append("TexturePackerDeserializer.exe -in=.\\TestJson.json -format=\"image\\tfilename\\tframe.x\\tframe.y\"\n");
             obj.exitMessage = stringBuilder.ToString();
             obj.forceAppExit = true;
             return true;
