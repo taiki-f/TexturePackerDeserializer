@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.Text;
+using AppSystem.Argument;
 
 namespace App.Argument
 {
-    class ArgVersion : AppSystem.IArgument<ArgParam>
+    class ArgVersion : IArgument<ArgParam>
     {
         readonly string PARAM_TYPE = "-version";
         readonly string VERSION = "0.0.6";

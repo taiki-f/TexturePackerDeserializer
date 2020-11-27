@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.IO;
+using AppSystem.Argument;
 
 namespace App.Argument
 {
-    class ArgInputFile : AppSystem.IArgument<ArgParam>
+    class ArgInputFile : IArgument<ArgParam>
     {
         readonly string PARAM_TYPE = "-in";
 

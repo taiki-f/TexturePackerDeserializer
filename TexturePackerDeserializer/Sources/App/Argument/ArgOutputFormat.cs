@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using App;
+using AppSystem.Argument;
 
 namespace App
 {
-    class ArgOutputFormat : AppSystem.IArgument<ArgParam>
+    class ArgOutputFormat : IArgument<ArgParam>
     {
         readonly string PARAM_TYPE = "-format";
 
