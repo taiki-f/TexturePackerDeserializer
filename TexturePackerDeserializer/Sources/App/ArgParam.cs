@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace App
 {
@@ -12,24 +13,42 @@ namespace App
     class ArgParam
     {
         // アプリを強制終了するか
-        public bool forceAppExit;
+        public bool forceAppExit = false;
         // 終了メッセージ
-        public string exitMessage;
+        public string exitMessage = string.Empty;
 
         // ファイルパス関連
-        public string filePath;
-        public string fileName;
+        public string inputFilePath = string.Empty;
+        public string outputFilePath = string.Empty;
 
         // JSONデータ
-        public JsonFormat jsonData;
+        public JsonFormat jsonData = new JsonFormat();
+
+        // 書き込みモード
+        public enum eWriteMode {
+            Override,               // 上書き
+            Add,                    // 追記
+        }
+        public eWriteMode writeMode = eWriteMode.Override;
 
         /// <summary>
-        /// コンストラクタ
+        /// ファイルへ出力
         /// </summary>
-        public ArgParam()
+        /// <param name="outputString">出力内容</param>
+        public bool OutputFile(string outputString)
         {
-            forceAppExit = false;
-            jsonData = new JsonFormat();
+            switch (writeMode)
+            {
+                case eWriteMode.Override:           // 上書き
+                    File.WriteAllText(outputFilePath, outputString);
+                    return true;
+
+                case eWriteMode.Add:                // 追記
+                    File.AppendAllText(outputFilePath, outputString);
+                    return true;
+            }
+
+            return false;
         }
     }
 }

@@ -35,16 +35,15 @@ namespace App.Argument
                 return false;
             }
 
-            obj.filePath = param;
-            obj.fileName = Path.GetFileName(param);
+            obj.inputFilePath = param;
 
             try
             {
-                LoadJson(obj.jsonData, obj.filePath);
+                LoadJson(obj.jsonData, obj.inputFilePath);
             }
             catch
             {
-                obj.exitMessage = "JSONデシリアライズに失敗 [path:" + obj.filePath + "]";
+                obj.exitMessage = "JSONデシリアライズに失敗 [path:" + obj.inputFilePath + "]";
                 obj.forceAppExit = true;
                 return false;
             }

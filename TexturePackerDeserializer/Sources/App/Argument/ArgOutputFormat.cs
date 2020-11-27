@@ -97,8 +97,8 @@ namespace App
             }
             else
             {
-                // 結果をリストに出力する
-                CreateListFile(stringBuilder.ToString());
+                // 結果を出力する
+                ResultPrint(obj, stringBuilder);
             }
 
             // 情報は出力したらアプリ終了
@@ -107,11 +107,25 @@ namespace App
         }
 
         /// <summary>
-        /// リストファイルを生成
+        /// 結果を出力
         /// </summary>
-        void CreateListFile(string outputString)
+        void ResultPrint(ArgParam obj, StringBuilder outputString)
         {
-            Console.WriteLine(outputString);
+            if (string.IsNullOrWhiteSpace(obj.outputFilePath))
+            {
+                // ファイルの出力情報が無いためログ出力
+                Console.WriteLine(outputString);
+                return;
+            }
+
+            // 連続で出力できるように改行を追加
+            outputString.Append('\n');
+
+            // ファイルへ出力
+            if (!obj.OutputFile(outputString.ToString()))
+            {
+                Console.WriteLine("ファイル出力に失敗しました。");
+            }
         }
 
         /// <summary>

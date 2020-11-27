@@ -97,7 +97,9 @@
     <Compile Include="Sources\App\Argument\ArgHelp.cs" />
     <Compile Include="Sources\App\Argument\ArgInputFile.cs" />
     <Compile Include="Sources\App\ArgParam.cs" />
+    <Compile Include="Sources\App\Argument\ArgOutputFile.cs" />
     <Compile Include="Sources\App\Argument\ArgOutputFormat.cs" />
+    <Compile Include="Sources\App\Argument\ArgOutputMode.cs" />
     <Compile Include="Sources\App\Argument\ArgVersion.cs" />
     <Compile Include="Sources\App\JsonFormat.cs" />
     <Compile Include="Sources\App\Main.cs" />

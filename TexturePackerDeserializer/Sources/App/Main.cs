@@ -31,7 +31,9 @@ namespace App
             // 引数ごとの処理を追加
             m_argFuncList.Add(new ArgHelp());           // ヘルプ確認
             m_argFuncList.Add(new ArgVersion());        // バージョン確認
-            m_argFuncList.Add(new ArgInputFile());      // 入力ファイル
+            m_argFuncList.Add(new ArgInputFile());      // 入力ファイル情報
+            m_argFuncList.Add(new ArgOutputMode());     // 出力モード
+            m_argFuncList.Add(new ArgOutputFile());     // 出力ファイル情報
             m_argFuncList.Add(new ArgOutputFormat());   // 出力フォーマット
 
             // 引数ごとの処理を実行

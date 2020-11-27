@@ -10,7 +10,7 @@ namespace App.Argument
     class ArgVersion : AppSystem.IArgument<ArgParam>
     {
         readonly string PARAM_TYPE = "-version";
-        readonly string VERSION = "0.0.4";
+        readonly string VERSION = "0.0.6";
 
         /// <summary>
         /// パラメータータイプを取得
@@ -37,6 +37,8 @@ namespace App.Argument
             stringBuilder.Append("0.0.2 : -helpにてヘルプ情報が見えるように実装\n");
             stringBuilder.Append("0.0.3 : -infoを廃止、代わりに-formatを実装\n");
             stringBuilder.Append("0.0.4 : -versionにてバージョン番号と変更履歴が確認できるように実装\n");
+            stringBuilder.Append("0.0.5 : -outにて出力先にファイルを指定できるように実装\n");
+            stringBuilder.Append("0.0.6 : -modeにてoutオプションで追加 or 上書きを選べるように実装\n");
             obj.exitMessage = stringBuilder.ToString();
             obj.forceAppExit = true;
             return true;

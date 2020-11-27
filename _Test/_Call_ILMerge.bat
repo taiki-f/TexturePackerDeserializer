@@ -27,4 +27,4 @@ echo exe‚Ædll‚ğŒ‹‡
         %inputDir%System.Threading.Tasks.Extensions.dll ^
         %inputDir%System.ValueTuple.dll
 
-if "%1"=="" pause
+rem if "%1"=="" pause
