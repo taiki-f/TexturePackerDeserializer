@@ -29,7 +29,8 @@ namespace App
             m_argFuncList = new List<IArgument<ArgParam>>();
 
             // 引数ごとの処理を追加
-            m_argFuncList.Add(new ArgHelp());           // ヘルプ
+            m_argFuncList.Add(new ArgHelp());           // ヘルプ確認
+            m_argFuncList.Add(new ArgVersion());        // バージョン確認
             m_argFuncList.Add(new ArgInputFile());      // 入力ファイル
             m_argFuncList.Add(new ArgOutputFormat());   // 出力フォーマット
 
