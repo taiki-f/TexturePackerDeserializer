@@ -15,7 +15,7 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     - name: Nuget Restore
-      run: MSBuild.exe -r $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj
+      run: MSBuild.exe -t:restore $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj
 
     - name: Release Build
       run: MSBuild.exe $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj -p:Configuration=Release
