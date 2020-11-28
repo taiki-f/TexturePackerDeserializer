@@ -24,4 +24,5 @@ jobs:
     - uses: actions/upload-artifact@v1.0.0
       with:
         name: artifacts
-        path: TexturePackerDeserializer\bin\Release\TexturePackerDeserializer.exe
+        path: TexturePackerDeserializer\bin\Release\*.exe
+        path: TexturePackerDeserializer\bin\Release\*.dll
