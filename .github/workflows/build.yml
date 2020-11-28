@@ -25,5 +25,6 @@ jobs:
       with:
         name: artifacts
         path: |
-          TexturePackerDeserializer\bin\Release\*.exe
           TexturePackerDeserializer\bin\Release\*.dll
+          TexturePackerDeserializer\bin\Release\*.exe
+          TexturePackerDeserializer\bin\Release\*.exe.config
