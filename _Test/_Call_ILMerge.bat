@@ -2,7 +2,7 @@
 title %~nx0
 
 rem ILMergeのパス
-set ilmerge=..\packages\ILMerge.3.0.41\tools\net452\ILMerge.exe
+set ilmerge=C:\Users\taiki\.nuget\packages\ilmerge\3.0.41\tools\net452\ILMerge.exe
 
 rem インプットディレクトリ
 set inputDir=..\TexturePackerDeserializer\bin\Release\
