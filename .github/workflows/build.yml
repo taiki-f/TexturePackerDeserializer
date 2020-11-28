@@ -10,9 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: warrenbuckley/Setup-Nuget@v1
+    - env: ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - run: nuget restore $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj
 
     - uses: warrenbuckley/Setup-MSBuild@v1
+    - env: ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - run: MSBuild.exe $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj -p:Configuration=Release
       timeout-minutes: 5
 
