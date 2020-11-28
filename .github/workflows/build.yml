@@ -13,7 +13,7 @@ jobs:
     - uses: warrenbuckley/Setup-Nuget@v1
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-    - run: nuget restore $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj
+    - run: MSBuild.exe -r $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj
 
     - uses: warrenbuckley/Setup-MSBuild@v1
       env:
