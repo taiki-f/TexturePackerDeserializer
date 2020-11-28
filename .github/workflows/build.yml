@@ -21,8 +21,9 @@ jobs:
       run: MSBuild.exe $Env:GITHUB_WORKSPACE\TexturePackerDeserializer\TexturePackerDeserializer.csproj -p:Configuration=Release
       timeout-minutes: 5
 
-    - uses: actions/upload-artifact@v1.0.0
+    - uses: actions/upload-artifact@v2
       with:
         name: artifacts
         path: |
-          TexturePackerDeserializer\bin\Release
+          TexturePackerDeserializer\bin\Release\*.exe
+          TexturePackerDeserializer\bin\Release\*.dll
